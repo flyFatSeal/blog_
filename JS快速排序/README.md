@@ -70,7 +70,7 @@ function quickSort(arr){
 
 * 小数组插入排序： 对于数组长度在15以内的排序使用插入排序，在数组偏小时，插入排序的性能表现优于快速排序，同时可以解决递归过深的问题。
 <br>
-![Image text](https://github.com/flyFatSeal/blog_/blob/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick2ways.png)
+![Image text](https://raw.githubusercontent.com/flyFatSeal/blog_/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick2ways.png)
 <br>
 
 **优化代码实现**：
@@ -140,7 +140,7 @@ function quickSort(arr) {
 在上面的代码中，对重复元素的处理是左边数组和右边数组平分中间重复元素的区域让划分出的数组近乎平衡，然后再进行新一轮的递归调用，然而实际上对排序中出现的重复元素来说，它已经处在自己应该的位置，不需要在对重复元素进行又一次排序，因此可以放弃中间重复区域的排序，在递归中返回左边界的结束指针（j）和右边界的结束指针（r）。让下一次的排序从[start,j-1]和[r+1,end]开始。
 
 <br>
-![Image text](https://github.com/flyFatSeal/blog_/blob/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick3ways.png)
+![Image text](https://raw.githubusercontent.com/flyFatSeal/blog_/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick3ways.png)
 <br>
 
 **实现思路**
