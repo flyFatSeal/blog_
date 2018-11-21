@@ -8,15 +8,15 @@
 
 **原理**：在数组中选定一个基准数（一般是数组第一个元素），以基准数为对比值，将比它小的数放在基准数的前面，比它大的数放在基准数的后面，也就是把数组分为两块，一块是小于基准数的区域，一块是大于基准数的区域。
 *****
-**实现思路**：首先思考为什么要以基准数（value）将数组分为两部分，通过以基准数为标准的划分，左边的数组都小于它，右边的数组都大于它，那么此时的基准数就恰好的找到了数组排序后它应该待的位置。然后不断递归划分直到数组的长度为1，排序完成,所有的元素都呆在了合适的位置。因此我们需要声明一个索引指针（j）它要维护的性质就是索引前面的值小于基准值，后面的大于基准数（nums[start+1...j]< value ; nums [j...end]>value）。j的初始值为第一个数组元素的索引，从第二个数组元素起开始遍历整个数组，当第i个索引的值小于基准值时，nums[j]和nums[i]交换，同时j++。遍历到最后时j的位置就是基准值在排序后应该在的位置，此时交换nums[j]和value。返回j为下一次递归表明界限。因此我们需要三个功能子函数来实现快排，分别是对数组进行递归分组的函数（_sort），对给定范围排序的函数（_partition）,交换数组元素的函数（_swap）
+**实现思路**：首先思考为什么要以基准数（value）将数组分为两部分，通过以基准数为标准的划分，左边的数组都小于它，右边的数组都大于它，那么此时的基准数就恰好的找到了数组排序后它应该待的位置。然后不断递归划分直到数组的长度为1，排序完成,所有的元素都呆在了合适的位置。因此我们需要声明一个索引指针（j）它要维护的性质就是索引前面的值小于基准值，后面的大于基准数（nums[start+1...j]< value ; arr [j...end]>value）。j的初始值为第一个数组元素的索引，从第二个数组元素起开始遍历整个数组，当第i个索引的值小于基准值时，nums[j]和nums[i]交换，同时j++。遍历到最后时j的位置就是基准值在排序后应该在的位置，此时交换nums[j]和value。返回j为下一次递归表明界限。因此我们需要三个功能子函数来实现快排，分别是对数组进行递归分组的函数（_sort），对给定范围排序的函数（_partition）,交换数组元素的函数（_swap）
 <br>
 ![Image text](https://github.com/flyFatSeal/blog_/blob/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick.png)
 <br>
 **代码实现**：
 ```javaScript
-function quickSort(nums){
-  _sort(0,nums.length-1)
-  return nums
+function quickSort(arr){
+  _sort(0,arr.length-1)
+  return arr
 
   //递归分组函数
   function _sort(start,end){
@@ -30,11 +30,11 @@ function quickSort(nums){
   //对给定数组的范围排序基准数
   function _partition(start,end){
     //拿到基准数
-    const value = nums[start]
+    const value = arr[start]
     let j = start
-    // 保证 nums[start+1...j] < value ; nums[j+1...end] > value
+    // 保证 arr[start+1...j] < value ; arr[j+1...end] > value
     for(let i = start+1;i<=end;i++){
-      if(nums[i]<value){
+      if(arr[i]<value){
         swap(i,++j)
       }
     }
@@ -45,12 +45,14 @@ function quickSort(nums){
   }
   //交换函数
   function swap(a,b){
-    [nums[a],nums[b]] = [nums[b],nums[a]]
+    [arr[a],arr[b]] = [arr[b],arr[a]]
   }
 }
 
 ```
-以上就是基础的快速排序算法代码，然而从网上的资料可知，快速排序是不稳定的排序算法，在极端条件下，它的时间复杂度会到退化到O(n^2)的程度，因此还需要针对不稳定的条件进行优化。
+以上就是基础的快速排序算法代码，然而从网上的资料可知，快速排序是不稳定的排序算法，在极端条件下，它的时间复杂度会退化到O(n^2)的程度，因此还需要针对不稳定的条件进行优化。
+
+## 双路快排(Quick 2ways)
 
 **不稳定条件分析：**
    
@@ -64,7 +66,7 @@ function quickSort(nums){
 
 * 随机基准数： 在数组中随机取一个基准数，然后与第一个元素交换位置。
 
-* 双路快排： 在基础的快排中我们只处理了小于基准数的情况，为了让大量重复元素下划分的左右数组平衡，在循环处理中增加一个指针r它维护（nums[r...end]>v），让小于v的数放在左边，大于v的放在右边，中间放等于v的元素，此时数组被划分为三部分(|num[start...j]<v| (j...r) =v | nums[r...end] >v |)，然后让j++，r--，直到相遇，此时左右两部分就近乎平分了中间等于v的区域，让划分的左右数组趋于平衡。
+* 双路快排： 在基础的快排中我们只处理了小于基准数的情况，为了让大量重复元素下划分的左右数组平衡，在循环处理中增加一个指针r它维护（nums[r...end]>v），让小于v的数放在左边，大于v的放在右边，中间放等于v的元素，此时数组被划分为三部分(|arr[start...j]<v| (j...r) =v | arr[r...end] >v |)，然后让j++，r--，直到相遇，此时左右两部分就近乎平分了中间等于v的区域，让划分的左右数组趋于平衡。
 
 * 小数组插入排序： 对于数组长度在15以内的排序使用插入排序，在数组偏小时，插入排序的性能表现优于快速排序，同时可以解决递归过深的问题。
 <br>
@@ -128,6 +130,82 @@ function quickSort(arr) {
 
 }
 ```
+
+然而在优化后的双路快排上还可以进一步优化。
+
+## 三路快排(Quick 3ways)
+
+**优化方案**
+
+在上面的代码中，对重复元素的处理是左边数组和右边数组平分中间重复元素的区域让划分出的数组近乎平衡，然后再进行新一轮的递归调用，然而实际上对排序中出现的重复元素来说，它已经处在自己应该的位置，不需要在对重复元素进行又一次排序，因此可以放弃中间重复区域的排序，在递归中返回左边界的结束指针（j）和右边界的结束指针（r）。让下一次的排序从[start,j-1]和[r+1,end]开始。
+
+<br>
+![Image text](https://github.com/flyFatSeal/blog_/blob/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick3ways.png)
+<br>
+
+**实现思路**
+
+和双路快排一致，不过在原有j和r指针的基础上增加一个新的指针i，在三路快排中，[start+1...j] < v ; (j...r) == v ; [r...end] > v。只要维护好三个指针的性质最后返回j和r，即可实现三路快排。
+
+**代码实现**
+
+```javaScript
+//函数直接操作数组指针不需要返回值
+function quickSort(arr) {
+  _sort(0, arr.length - 1)
+  return arr
+  //递归把数组分组
+  function _sort(start, end) {
+    if (end - start <= 15) {
+      insertSort(start, end)
+      return
+    }
+    //partition函数：返回j,r指针避免对重复元素的再排序。
+    let [j, r] = _partition(start, end)
+    _sort(start, j)
+    _sort(r, end)
+  }
+  //交换函数用于交换需要排列的数,只需要操作数组对应索引即可
+  function swap(a, b) {
+    //同双路快排代码一致
+  }
+  //按照基准数划分数组
+  function _partition(start, end) {
+    //优化随机基准点
+    swap(start, Math.floor(Math.random() * (end - start + 1) + start))
+    //
+    let j = start //arr[start+1...j] < v
+    let r = end + 1 //arr[r...end] > v
+    let i = start + 1 //arr[j+1...i) == v
+    let value = arr[start]
+    //循环中的操作都是维护j，i，r的范围性质
+    while (i < r) {
+      if (arr[i] < value) {
+        swap(i, j + 1)
+        j++
+        i++
+      } else if (arr[i] > value) {
+        swap(i, r - 1)
+        r--
+      } else {
+        i++
+      }
+    }
+    swap(start, j)
+    return [j, r]
+  }
+
+  function insertSort(start, end) {
+    //同双路快排代码一致
+  }
+
+}
+
+```
+
+
+
+
 
 
 
