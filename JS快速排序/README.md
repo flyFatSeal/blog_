@@ -98,16 +98,15 @@ function quickSort(arr) {
   //按照基准数划分数组
   function _partition(start, end) {
     //优化随机基准点
-    swap(start, Math.floor(Math.random() * (end - start) + start))
+    swap(start, Math.floor(Math.random() * (end - start + 1) + start))
     //两个指针指向头部和尾部将数字划分为三块，小于等于v一块等于v一块，大于等于v一块避免数字出现大量重复元素时，快速排序退化到n平方的复杂度
     let j = start + 1,
       r = end,
       value = arr[start]
-    //循环遍历
     while (true) {
       //排序出小于v和大于v的区域
-      while (j < end && arr[i] < value) j++
-      while (j > start + 1 && arr[r] > value) r--
+      while (j <= end && arr[j] < value) j++
+      while (r >= start + 1 && arr[r] > value) r--
       //循环结束条件，i指针大于r指针,遇到重复元素
       if (j > r) break
       swap(j, r)
@@ -119,8 +118,9 @@ function quickSort(arr) {
   }
 
   function insertSort(start, end) {
-    for (let i = 1; i < end - start + 1; i++) {
-      let e = arr[start],
+    for (let i = start + 1; i <= end; i++) {
+      //排序nums【i】，当前面元素大于nums[i]时，元素后移，到合适位置时赋值nums【i】
+      let e = arr[i],
         j
       for (j = i; j > 0 && arr[j - 1] > e; j--) {
         arr[j] = arr[j - 1]
@@ -128,6 +128,7 @@ function quickSort(arr) {
       arr[j] = e
     }
   }
+
 }
 ```
 
