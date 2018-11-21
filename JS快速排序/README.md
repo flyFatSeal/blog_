@@ -10,7 +10,7 @@
 *****
 **实现思路**：首先思考为什么要以基准数（value）将数组分为两部分，通过以基准数为标准的划分，左边的数组都小于它，右边的数组都大于它，那么此时的基准数就恰好的找到了数组排序后它应该待的位置。然后不断递归划分直到数组的长度为1，排序完成,所有的元素都呆在了合适的位置。因此我们需要声明一个索引指针（j）它要维护的性质就是索引前面的值小于基准值，后面的大于基准数（nums[start+1...j]< value ; nums [j...end]>value）。j的初始值为第一个数组元素的索引，从第二个数组元素起开始遍历整个数组，当第i个索引的值小于基准值时，nums[j]和nums[i]交换，同时j++。遍历到最后时j的位置就是基准值在排序后应该在的位置，此时交换nums[j]和value。返回j为下一次递归表明界限。因此我们需要三个功能子函数来实现快排，分别是对数组进行递归分组的函数（_sort），对给定范围排序的函数（_partition）,交换数组元素的函数（_swap）
 <br>
-![Image text](https://github.com/flyFatSeal/blog_/blob/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/quick.png)
+![Image text](https://github.com/flyFatSeal/blog_/blob/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick.png)
 <br>
 **代码实现**：
 ```javaScript
@@ -67,7 +67,9 @@ function quickSort(nums){
 * 双路快排： 在基础的快排中我们只处理了小于基准数的情况，为了让大量重复元素下划分的左右数组平衡，在循环处理中增加一个指针r它维护（nums[r...end]>v），让小于v的数放在左边，大于v的放在右边，中间放等于v的元素，此时数组被划分为三部分(|num[start...j]<v| (j...r) =v | nums[r...end] >v |)，然后让j++，r--，直到相遇，此时左右两部分就近乎平分了中间等于v的区域，让划分的左右数组趋于平衡。
 
 * 小数组插入排序： 对于数组长度在15以内的排序使用插入排序，在数组偏小时，插入排序的性能表现优于快速排序，同时可以解决递归过深的问题。
-
+<br>
+![Image text](https://github.com/flyFatSeal/blog_/blob/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick2ways.png)
+<br>
 
 **优化代码实现**：
 
