@@ -70,7 +70,7 @@ function quickSort(arr){
 
 * 小数组插入排序： 对于数组长度在15以内的排序使用插入排序，在数组偏小时，插入排序的性能表现优于快速排序，同时可以解决递归过深的问题。
 <br>
-![Image text](https://raw.githubusercontent.com/flyFatSeal/blog_/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick2ways.png)
+![Image text](https://raw.githubusercontent.com/flyFatSeal/blog_/master/JS%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/img/quick3ways.png)
 <br>
 
 **优化代码实现**：
