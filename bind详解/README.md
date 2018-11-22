@@ -122,7 +122,7 @@ price.bind(obj,10)(20)
 回到具体的polyfill中，其中
 >var aArgs   = Array.prototype.slice.call(arguments, 1)
 
-这里的aArgs变量就是用来存储bind方法调用时传入的参数，其中通过Array.prototype.slice.call可以把传入的参数转化为数组，为什么要转化为数组，因为在具体调用bind时，参数个数是不确定的，在不确定参数个数时需要使用apply方法，apply方法的第二参数接受一个数组。而...slice.call(arguments, 1)，则是把bind方法调用时传入的参数从第二个开始转化为数组（因为bind方法的第一个参数是绑定的this对象）。注意这里处理的是bind(this,arguments)中的arguments，还有bind方法执行后的函数再调用时传入的参数需要处理也就是bind(this,arguments)(fArgs)中的fArgs。
+这里的aArgs变量就是用来存储bind方法调用时传入的参数，其中通过Array.prototype.slice.call可以把传入的参数转化为数组，为什么要转化为数组，因为在具体调用bind时，参数个数是不确定的，在不确定参数个数时需要使用apply方法，apply方法的第二参数接受一个数组。而...slice.call(arguments, 1)，则是把bind方法调用时传入的参数从第二个开始转化为数组（因为bind方法的第一个参数是绑定的this对象）。<br/>注意这里处理的是bind(this,arguments)中的arguments，还有bind方法执行后的函数再调用时传入的参数需要处理也就是bind(this,arguments)(fArgs)中的fArgs。
 
 在polyfill中，是这样处理fArgs的
 ```
