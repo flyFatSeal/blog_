@@ -82,7 +82,7 @@ bind方法是ECMAScript 5才加入的新方法，因此存在着浏览器兼容�
 通过前面的介绍，bind方法与apply，call不同在于bind方法调用时返回的是一个新函数，而apply，call是立即执行，在不支持bind的浏览器环境下，需要用apply来模拟bind执行，核心在于bind是返回一个绑定this对象的函数，因此在polyfill中只需要返回一个函数,在返回的函数中通过apply方法绑定this对象和处理参数即可。
 
 
-###this类型判断
+### this类型判断
 
 bind方法返回的是一个绑定了this对象的函数，并且bind是Function的方法，在函数体上调用，因此要对bind调用时的this进行判断如果不是function对象则抛出错误。
 
@@ -180,7 +180,7 @@ new myFunction{
 可知在执行new操作时this的指向已经被改变了如果此时还是使用bind方法传入的要绑定的this，那么原函数的原型链就会被切断，导致new出来的新对象无法继承原函数的方法。所以当fToBind被当做构造函数使用时，放弃绑定传入的this对象。
 
 
-##总结
+## 总结
 
 由上可知，bind的polyfill主要处理了bind方法调用时参数传递问题，被当做构造函数使用时的继承问题，如果对bind执行流程和继承原理熟悉，bind的polyfill就可以一眼看穿了。
 
