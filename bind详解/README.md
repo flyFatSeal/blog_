@@ -2,7 +2,7 @@
 
 本文主要详细分解bind函数的polyfill实现。
 
-##一：bind基础
+## 一：bind基础
 
 bind函数的具体功能与apply，call函数相似都是改变函数体内的this对象，也就是扩充函数作用域。在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">MDN</a>中是这样介绍bind的
 
