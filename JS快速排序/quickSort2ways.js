@@ -51,3 +51,5 @@ function quickSort(arr) {
   }
 
 }
+
+quickSort([1, 2, 3])
