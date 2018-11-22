@@ -32,7 +32,7 @@ b.bind(a)() // 现在的所在的环境是inner
 因此bind函数可以异步执行，这是它区别于apply和bind的主要地方。
 
 
-##二：详解polyfill
+## 二：详解polyfill
 
 bind方法是ECMAScript 5才加入的新方法，因此存在着浏览器兼容性问题，在具体执行中最好加入polyfill增加兼容性。在MDN的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">polyfill</a>是这样的
 ```
@@ -94,7 +94,7 @@ if (typeof this !== 'function') {
 
 ```
 
-###参数处理
+### 参数处理
 
 
 在bind方法调用时需要传入两个参数，第一个是绑定的this对象，第二个是绑定的this对象的参数，因为bind方法返回一个新的函数，新的函数又可以传递参数。
