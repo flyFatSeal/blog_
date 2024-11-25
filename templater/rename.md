@@ -1,0 +1,38 @@
+    <%*
+
+const content = tp.file.content;
+
+// 1. 找到 YAML front matter，假设它位于文件的开始部分，分隔符是 `---`
+const sections = content.split("---");
+
+if (sections.length >= 3) {
+const middleContent = sections[1];
+
+    // 3. 替换 fake 换行（两个空格）为真实换行（\n）
+    const modifiedContent = middleContent.replace(/\n/g, "\n\n");
+
+    // 4. 将修改后的内容替换回去
+    sections[1] = modifiedContent;
+
+} else {
+// 如果文件没有正确的 YAML front matter，返回原内容
+tR += content;
+}
+
+%>
+
+Editors of newspapers and magazines often go to extremes to provide their readers with
+unimportant facts and statistics. Last year a journalist had been instructed by a well-known
+magazine to write an article on the president's palace in a new African republic. When the article
+arrived, the editor read the first sentence and then refused to publish it. The article began:  
+'Hundreds of steps lead to the high wall which surrounds the president's palace.' The editor at
+once sent the journalist a fax instructing him to find out the exact number of steps and the
+height of the wall.The journalist immediately set out to obtain these important facts, but he took
+a long time to send them. Meanwhile, the editor was getting impatient, for the magazine would
+soon go to press. He sent the journalist two more faxes, but received no reply. He sent yet
+another fax informing the journalist that if he did not reply soon he would be fired. When the
+journalist again failed to reply, the editor reluctantly published the article as it had originally
+been written. A week later, the editor at last received a fax from the journalist. Not only had the
+poor man been arrested, but he had been sent to prison as well. However, he had at last been
+allowed to send a fax in which he informed the editor that he had been arrested while counting
+the 1,084 steps leading to the fifteen-foot wall which surrounded the president's palace.
