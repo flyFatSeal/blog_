@@ -5,7 +5,6 @@
 因为杂志马上要付印。 他给记者先后发去两份传真， 但对方毫无反应。于是他又发了一份传真。 通知那位记者说，若再不迅速答复，将被解雇。 但记者还是没有回复。编辑无奈， 勉强按原样发稿了。一周之后， 编辑终于接到了记者的传真。 那个可怜的记者不仅被捕了， 而且还被送进了监狱。不过， 他终于获准发回了一份传真。在传真中他告诉编辑，就在他数通向 15 英尺高的总统府围墙的 1,084 级台阶时，被抓了起来。
 
 ---
-
 Editors of newspapers and magazines often go to extremes to provide their readers with
 
 unimportant facts and statistics. Last year a journalist had been instructed by a well-known
@@ -14,9 +13,9 @@ magazine to write an article on the president's palace in a new African republic
 
 arrived, the editor read the first sentence and then refused to publish it. The article began:  
 
-'Hundreds of steps lead to the high wall which surrounds the president's palace.' The editor at
+'Hundreds of steps lead to the high wall which surrounds the president's palace.' The editor at 
 
-once sent the journalist a fax instructing him to find out the exact number of steps and the
+once sent the journalist a fax instructing him to find out the exact number of steps and the 
 
 height of the wall.The journalist immediately set out to obtain these important facts, but he took
 
