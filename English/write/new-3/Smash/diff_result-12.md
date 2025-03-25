@@ -1,0 +1,9 @@
+
+
+
+
+<span style="color:#0AA">@@ -3,4 +3,4 @@</span>
+
+The expensive shops in a famous arcade near Piccadilly were just opening. At this time of the morning, the arcade was almost empty. Mr.Taylor, the owner of a jewellery shop was admiring a new window display. Two of his assistants had been working busily since eight o'clock and had only just finished. Diamond necklaces and rings had been beautifully arranged on a background of black velvet. After gazing at the display for several minutes, Mr.Taylor went back into his shop.
+
+The silence was suddenly broken when a large car, with its headlights on and its horn blaring, roared down the arcade. It came<span style="color:#A00">to</span> a stop outside the jeweller's. One<span style="color:#A00">man</span> stayed at the wheel while two others with black stockings over their faces jumped out and smashed the window of the shop with iron bars. While this was going on, Mr.Taylor was upstairs. He and his staff began throwing <span style="color:#A00">furniture</span><span style="color:#0A0">furnitures</span> out of the window. Chairs and tables went flying into the arcade. One<span style="color:#A00">of the</span> thieves was struck by a heavy <span style="color:#A00">statue,</span><span style="color:#0A0">status,</span> but he was <span style="color:#A00">too</span><span style="color:#0A0">to</span> busy helping himself to diamonds to notice any pain. The raid was all over in three minutes, for the men scrambled back into the car and it moved off at a fantastic speed. Just as it was leaving, Mr.Taylor rushed out and ran after it throwing ashtrays and vases, but it was impossible to stop the thieves. They had got away with thousands of pounds worth of <span style="color:#A00">diamonds.</span><span style="color:#0A0">diamonds</span>

@@ -1,1 +1,1 @@
-<% tp.user.format(tp.file.content) %>
+<% tp.user.format(tp.file.path()) %>
